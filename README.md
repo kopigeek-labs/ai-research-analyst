@@ -1,5 +1,8 @@
 # AI Research Analyst Application
 
+## ** IMPORTANT NOTE **
+Requires an OpenAI API key in .env for the application to work!
+
 ## 1. Project Vision & Objective
 
 As an AI Product Manager at [INVESTMENT FIRM], the vision is to design and build a cutting-edge **AI Research Application** for the Equities department. This application aims to solve real business problems for investment professionals and research analysts by:
@@ -9,9 +12,6 @@ As an AI Product Manager at [INVESTMENT FIRM], the vision is to design and build
 - **Gathering Accurate Insights:** Leveraging AI to uncover patterns and information from diverse data sources.
 
 This AI Research Assistant will empower researchers to perform high-level and in-depth analysis on US-listed companies efficiently and effectively.
-
-IMPORTANT NOTE: Requires an OpenAI API key in .env for the application to work!
-
 
 ## 2. Core Problem Statement
 
