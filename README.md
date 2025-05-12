@@ -2,7 +2,7 @@
 
 ## 1. Project Vision & Objective
 
-As an AI Product Manager at GIC, the vision is to design and build a cutting-edge **AI Research Application** for the Equities department. This application aims to solve real business problems for investment professionals and research analysts by:
+As an AI Product Manager at [INVESTMENT FIRM], the vision is to design and build a cutting-edge **AI Research Application** for the Equities department. This application aims to solve real business problems for investment professionals and research analysts by:
 
 - **Saving Time:** Automating data gathering, processing, and initial analysis.
 - **Improving Investment Decision-Making:** Providing timely, relevant, and deep insights.
