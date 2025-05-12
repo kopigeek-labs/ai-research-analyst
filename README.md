@@ -34,22 +34,7 @@ Information sources for the MVP primarily include public market data (via Yahoo 
 To meet the project objectives and deliver significant value, the following features are proposed, prioritized by benefit and impact:
 These features are essential for the application's core value proposition. Many are partially implemented or mocked in the MVP and require full integration with real data sources.
 
-1.  **Advanced Natural Language Query Interface:**
-    - **Description:** Robust understanding of complex financial queries, context-awareness, and conversational follow-ups.
-    - **Benefit:** Intuitive user experience, faster access to information.
-    - **Impact:** High.
-2.  **Real-time & Historical Financial Data Retrieval:**
-    - **Description:** Comprehensive access to stock prices, volumes, historical data, company financials (income statements, balance sheets, cash flow), and key ratios.
-    - **Benefit:** Foundation for all quantitative analysis.
-    - **Impact:** High.
-3.  **Comprehensive News & Announcements Aggregation:**
-    - **Description:** Real-time aggregation from diverse public sources (news wires, financial news sites, company blogs) and internal sources. AI-powered filtering for relevance and sentiment.
-    - **Benefit:** Complete and timely overview of company-specific events.
-    - **Impact:** High.
-4.  **Intelligent Stock Movement Analysis:**
-    - **Description:** AI-driven correlation of stock price changes with specific news, announcements, market events, and sector trends.
-    - **Benefit:** Deeper understanding of market dynamics.
-    - **Impact:** High.
-5.  **SEC Filings Retrieval & AI Summarization:**
-    - **Description:** Automated fetching of SEC filings
-    - **Impact:** Medium.
+1.  Advanced Natural Language Query Interface
+2.  Real-time & Historical Financial Data Retrieval
+3.  News & Announcements Aggregation
+4.  Intent & Safety Guardrail
