@@ -10,9 +10,7 @@ As an AI Product Manager at [INVESTMENT FIRM], the vision is to design and build
 
 This AI Research Assistant will empower researchers to perform high-level and in-depth analysis on US-listed companies efficiently and effectively.
 
-========================================================================
-Note: Requires an OpenAI API key in .env for the application to work!
-========================================================================
+IMPORTANT NOTE: Requires an OpenAI API key in .env for the application to work!
 
 
 ## 2. Core Problem Statement
