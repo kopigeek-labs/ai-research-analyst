@@ -1,3 +1,7 @@
+====================================================================
+Note: Requires an OpenAI API key in .env for the application to work
+====================================================================
+
 # AI Research Analyst Application
 
 ## 1. Project Vision & Objective
@@ -38,3 +42,5 @@ These features are essential for the application's core value proposition. Many 
 2.  Real-time & Historical Financial Data Retrieval
 3.  News & Announcements Aggregation
 4.  Intent & Safety Guardrail
+
+Created By: @weiyima
