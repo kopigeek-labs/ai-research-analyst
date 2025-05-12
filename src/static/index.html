@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>AI Research Assistant</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Modern font stack */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Lighter background */
+            color: #212529; /* Darker text for better contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ffffff; /* White header */
+            color: #007bff; /* Blue text for header */
+            padding: 15px 20px; /* Adjusted padding for logo */
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Softer shadow */
+            border-bottom: 1px solid #e9ecef; /* Subtle border */
+            display: flex; /* Added for logo and title alignment */
+            align-items: center; /* Vertically align items */
+            justify-content: center; /* Horizontally center content */
+        }
+        header img#logo { /* Style for the logo */
+            height: 40px; /* Adjust as needed */
+            margin-right: 15px; /* Space between logo and title */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.0em; /* Slightly adjusted font size */
+            font-weight: 600; /* Bolder title */
+        }
+        .container {
+            width: 90%;
+            max-width: 760px; /* Slightly narrower for better readability */
+            margin: 30px auto; /* Increased margin */
+            padding: 25px; /* Increased padding */
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer, more diffused shadow */
+            border-radius: 12px; /* More rounded corners */
+        }
+        #openai-api-key-error {
+            background-color: #f8d7da; /* Softer red */
+            color: #721c24; /* Darker red text */
+            padding: 12px 15px; /* Adjusted padding */
+            border: 1px solid #f5c6cb; /* Softer border */
+            border-radius: 6px; /* Rounded corners */
+            margin-bottom: 20px; /* Increased margin */
+            text-align: center;
+            font-size: 0.95em;
+        }
+        .query-form {
+            display: flex;
+            gap: 12px; /* Increased gap */
+            margin-bottom: 25px; /* Increased margin */
+        }
+        .query-form input[type="text"] {
+            flex-grow: 1;
+            padding: 14px 18px; /* Increased padding */
+            border: 1px solid #ced4da; /* Softer border */
+            border-radius: 6px; /* Rounded corners */
+            font-size: 1em;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .query-form input[type="text"]:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+        .query-form button {
+            padding: 14px 22px; /* Increased padding */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px; /* Rounded corners */
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500; /* Medium weight */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .query-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px); /* Subtle hover effect */
+        }
+        .query-form button:active {
+            transform: translateY(0px); /* Click effect */
+        }
+        .response-area {
+            margin-top: 25px; /* Increased margin */
+            padding: 18px 20px; /* Increased padding */
+            background-color: #f8f9fa; /* Lighter background for response */
+            border: 1px solid #e9ecef; /* Softer border */
+            border-radius: 6px; /* Rounded corners */
+            min-height: 120px; /* Increased min-height */
+            white-space: pre-wrap;
+            overflow-x: auto;
+            font-size: 0.95em;
+            line-height: 1.6; /* Improved readability */
+        }
+        .response-area.loading {
+            color: #6c757d; /* Softer loading text color */
+            font-style: italic;
+        }
+        .response-area.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .example-queries {
+            margin-top: 35px; /* Increased margin */
+            padding-top: 25px; /* Increased padding */
+            border-top: 1px solid #e9ecef; /* Softer border */
+        }
+        .example-queries h3 {
+            margin-top: 0;
+            margin-bottom: 15px; /* Added margin */
+            color: #495057; /* Softer heading color */
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .example-queries ul {
+            list-style: none;
+            padding: 0;
+        }
+        .example-queries li {
+            background-color: #ffffff;
+            padding: 10px 15px; /* Adjusted padding */
+            border-radius: 6px; /* Rounded corners */
+            margin-bottom: 10px; /* Increased margin */
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-left-color 0.2s ease;
+            border: 1px solid #e9ecef; /* Subtle border */
+            border-left: 3px solid transparent; /* For hover effect */
+        }
+        .example-queries li:hover {
+            background-color: #f0f6ff; /* Lighter blue hover */
+            border-left-color: #007bff; /* Blue accent on hover */
+        }
+        footer {
+            text-align: center;
+            padding: 25px 0; /* Increased padding */
+            margin-top: auto;
+            font-size: 0.9em;
+            color: #6c757d; /* Softer footer text color */
+            width: 100%;
+            background-color: #f8f9fa; /* Match body background */
+            border-top: 1px solid #e9ecef; /* Subtle border */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/giclogo.png')}}" alt="GIC Logo" id="logo">
+        <h1>Research Agent (AI MVP Demo)</h1>
+    </header>
+
+    <div class="container">
+        {% if openai_api_key_error %}
+            <div id="openai-api-key-error">
+                <strong>Warning:</strong> {{ openai_api_key_error }}
+            </div>
+        {% endif %}
+
+        <form id="queryForm" class="query-form">
+            <input type="text" id="queryInput" placeholder="Ask about a US-listed company (e.g., 'Latest stock price for AAPL')" required>
+            <button type="submit">Ask</button>
+        </form>
+
+        <div id="responseArea" class="response-area">Ask a question to see the assistant's response here.</div>
+
+        <div class="example-queries">
+            <h3>Example Questions:</h3>
+            <ul>
+                <li data-query="What is the latest stock price for Apple?">What is the latest stock price for Apple?</li>
+                <li data-query="What are the latest related announcements for Meta?">What are the latest related announcements for Meta?</li>
+                <li data-query="What are the reasons for Tesla's stock price movements in the last 2 weeks?">What are the reasons for Tesla's stock price movements in the last 2 weeks?</li>
+                <li data-query="What are the latest news about Google?">What are the latest news about Google?</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>GIC AI Research Assistant MVP &copy; 2025</p>
+    </footer>
+
+    <script>
+        document.getElementById('queryForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const queryInput = document.getElementById('queryInput');
+            const query = queryInput.value.trim();
+            const responseArea = document.getElementById('responseArea');
+
+            if (!query) {
+                responseArea.textContent = 'Please enter a query.';
+                responseArea.className = 'response-area error';
+                return;
+            }
+
+            responseArea.textContent = 'Fetching response...';
+            responseArea.className = 'response-area loading';
+
+            try {
+                const formData = new FormData();
+                formData.append('query', query);
+
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    responseArea.textContent = data.response;
+                    responseArea.className = 'response-area';
+                } else {
+                    responseArea.textContent = `Error: ${data.error || 'An unknown error occurred.'}`;
+                    responseArea.className = 'response-area error';
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                responseArea.textContent = 'An error occurred while trying to reach the assistant. Check the console for details.';
+                responseArea.className = 'response-area error';
+            }
+        });
+
+        document.querySelectorAll('.example-queries li').forEach(item => {
+            item.addEventListener('click', function() {
+                document.getElementById('queryInput').value = this.dataset.query;
+                document.getElementById('queryForm').dispatchEvent(new Event('submit'));
+            });
+        });
+    </script>
+</body>
+</html>
+
