@@ -54,4 +54,5 @@ These features are essential for the application's core value proposition. Many 
     - **Benefit:** Deeper understanding of market dynamics.
     - **Impact:** High.
 5.  **SEC Filings Retrieval & AI Summarization:**
-    - **Description:** Automated fetching of SEC filings (8-K, 10-Q, 10-
+    - **Description:** Automated fetching of SEC filings
+    - **Impact:** Medium.
