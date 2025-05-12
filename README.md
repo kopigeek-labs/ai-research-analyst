@@ -32,9 +32,6 @@ Information sources for the MVP primarily include public market data (via Yahoo 
 ## 4. Proposed Features List & Prioritization
 
 To meet the project objectives and deliver significant value, the following features are proposed, prioritized by benefit and impact:
-
-### P0: Core Foundational Features (High Benefit, High Impact)
-
 These features are essential for the application's core value proposition. Many are partially implemented or mocked in the MVP and require full integration with real data sources.
 
 1.  **Advanced Natural Language Query Interface:**
