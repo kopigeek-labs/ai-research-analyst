@@ -1,5 +1,6 @@
 .DS_Store
 src/.DS_Store
 .git
+src/.env
 .env
 __pycache__
